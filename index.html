@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        html {
+            min-height: 100%;
+            height: auto;
+       }
+        body {
+            height: 100%;
+            font-family: sans-serif;
+            overflow: scroll;
+            margin: 0;
+            background-image: url('https://cdn.sstatic.net/Img/april-fools-2019/so-tile.png?v=5922b5fd7715');
+            counter-reset: number;
+            color: rgb(50, 232, 48);
+        }
+        .blue {
+            background-color: #7887AB;
+            color: black;
+        }
+        .green {
+            background-color: #FFFFAA;
+            color: black;
+        }
+        .red {
+            background-color: #AA3939;
+            color: #EFEFEF;
+        }
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .scroll-banner-wrapper {
+            width: 100%;
+            background-color: black;
+            margin-bottom: 8px;
+            border-bottom: 5px solid green;
+            overflow: hidden;
+        }
+        .scroll-banner {
+            transform: translateX(100%);
+            animation: 5s linear 0s infinite normal none running marquee;
+        }
+        .parent-fizz-buzz-container {
+            text-align: center;
+            min-height: 2000px;
+            height: 100%;
+            position: relative; /* for unicorn image */
+            background: linear-gradient(0deg, rgb(67, 149, 207) 0%, rgb(154, 84, 227) 100%) !important;
+            border: 4px solid rgb(50, 232, 48) !important;
+        }
+        [class*='fizz-buzz-wrapper'] {
+            display: inline-block;
+            width: 45%;
+            text-align: center;
+        }
+        .fizz-buzz-output {
+            margin-bottom: 16px;
+            padding: 8px;
+        }
+        .fizz-buzz-wrapper-css > div::before {
+            counter-increment: number;                 /* Increment the value of section counter by 1 */
+            content: counter(number);                  /* Display the value of section counter */
+        }
+
+        .fizz-buzz-wrapper-css > div:nth-child(3n):not(:nth-child(5n)) {
+            background-color: #FFFFAA;
+        }
+        .fizz-buzz-wrapper-css > div:nth-child(3n):not(:nth-child(5n))::before {
+            color: black;
+            content: "Fizz";
+        }
+        .fizz-buzz-wrapper-css > div:nth-child(5n):not(:nth-child(3n)) {
+            background-color: #7887AB;
+        }
+        .fizz-buzz-wrapper-css > div:nth-child(5n):not(:nth-child(3n))::before {
+            color: black;
+            content: "Buzz";
+        }
+        .fizz-buzz-wrapper-css > div:nth-child(5n):nth-child(3n) {
+            color: #EFEFEF;
+        }
+        .fizz-buzz-wrapper-css > div:nth-child(3n):nth-child(5n) {
+            background-color: #AA3939;
+        }
+        .fizz-buzz-wrapper-css > div:nth-child(3n):nth-child(5n)::before {
+            content: "FizzBuzz";
+        }
+
+        .tm-unicorn-front {
+            position: absolute;
+            top: 200px;
+            left: -195px;
+        }
+
+        .tm-unicorn-back {
+            position: absolute;
+            top: 280px;
+            right: -198px;
+        }
+
+        .tm-globe {
+            width: 32px;
+            height: 32px;
+            margin-right: 16px;
+        }
+        .language-icon-wrapper {
+            display: inline-block;
+            width: 45%;
+            text-align: center;
+
+        }
+        .language-icon {
+            display: inline-block;
+
+            height: 64px;
+            width: 64px;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .parent-fizz-buzz-container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            [class*='fizz-buzz-wrapper'] {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="scroll-banner-wrapper">
+    <section class="scroll-banner">
+        <img class="" src="https://cdn.sstatic.net/Img/april-fools-2019/headline.gif?v=f81430a4e488" alt="">
+    </section>
+</div>
+<main class="parent-fizz-buzz-container">
+    <header>
+        <h1><em>FizzBuzz</em>, B*tches!</h1>
+        <blockquote cite="Confucious">
+            <p>When you can't impress them with your intelligence, <em>dazzle</em> them with your bullsh*t...</p>
+            <p>– <i>Confucious</i></p>
+        </blockquote>
+        <img src="https://cdn.sstatic.net/Img/april-fools-2019/globe.gif?v=d8211e5aae84" class="tm-globe">
+    </header>
+    <img class="tm-unicorn-front" src="https://cdn.sstatic.net/Img/april-fools-2019/unicorn-front-half.png?v=3b572eca29f8" alt="UNI...">
+
+    <header style="max-width: 600px; margin: 0 auto">
+        <div class="language-icon-wrapper">
+            <img class="language-icon" src="https://pluralsight.imgix.net/paths/path-icons/css-c9b214f0d7.png" alt="" style="margin-right: 16px">
+
+        </div>
+        <div class="language-icon-wrapper">
+            <img class="language-icon" src="https://searchlite.nl/wp-content/uploads/2016/08/JavaScript.png" alt="" style="margin-left: 16px; width: 48px; height: 48px">
+
+        </div>
+
+    </header>
+    <section id="fizz_buzz_output_css" class="fizz-buzz-wrapper-css">
+
+    </section>
+
+    <section id="fizz_buzz_output_js" class="fizz-buzz-wrapper-js">
+        <header>
+        </header>
+
+
+    </section>
+    <img class="tm-unicorn-back" src="https://cdn.sstatic.net/Img/april-fools-2019/unicorn-back-half.png?v=1a044240263b" alt="...CORN">
+</main>
+<footer>
+</footer>
+<script>
+    function createAndAppendListElements(){
+    }
+    function getNewElementNodeWithText(tagName, content) {
+        var newElementNode = document.createElement(tagName);
+        var content = document.createTextNode(content);
+        newElementNode.appendChild(content)
+        return newElementNode;
+    }
+
+    function attachNewElementNodeToTargetId(newElementNodeWithText, targetId){
+        newElementNodeWithText.classList.add("fizz-buzz-output");
+        document.getElementById(targetId).appendChild(newElementNodeWithText);
+    }
+
+    function fizzBuzz(startIndex, endIndex) {
+        var newElementNodeWithText;
+        var content;
+        var color;
+        for(var i = startIndex; i < endIndex; i++){
+            if(i%15 === 0){
+                content = "FizzBuzz";
+                color = 'red';
+            } else {
+                if(i%3 === 0){
+                    content =  "Fizz";
+                    color = 'green';
+                } else if(i%5 === 0) {
+                    content = "Buzz";
+                    color = 'blue';
+                } else {
+                    content = i;
+                }
+            }
+            addFormattedElementNodeToDom(content, color);
+
+        } //end for loop
+    }
+    function addFormattedElementNodeToDom(content, color){
+        newElementNodeWithText = getNewElementNodeWithText('div', content);
+        if(typeof content !== "number"){
+            newElementNodeWithText.classList.add(content, color);
+        }
+        attachNewElementNodeToTargetId(newElementNodeWithText,'fizz_buzz_output_js');
+        attachNewElementNodeToTargetId(getNewElementNodeWithText("div", ""),'fizz_buzz_output_css');
+    }
+    window.onload = function () {
+        fizzBuzz(1, 100);
+    }
+</script>
+</body>
+</html>
