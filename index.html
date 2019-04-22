@@ -10,13 +10,21 @@
             height: auto;
        }
         body {
-            height: 100%;
+            height: auto;
+            min-height: 100%;
             font-family: sans-serif;
             overflow: scroll;
             margin: 0;
             background-image: url('https://cdn.sstatic.net/Img/april-fools-2019/so-tile.png?v=5922b5fd7715');
             counter-reset: number;
             color: rgb(50, 232, 48);
+            position: relative;
+            padding-bottom: 200px; /* For footer height */
+        }
+        footer {
+            width: 100%;
+            position: absolute;
+            bottom: 0
         }
         .blue {
             background-color: #7887AB;
@@ -60,6 +68,7 @@
         [class*='fizz-buzz-wrapper'] {
             display: inline-block;
             width: 45%;
+            max-width: 300px;
             text-align: center;
         }
         .fizz-buzz-output {
@@ -152,16 +161,18 @@
             <p>– <i>Confucious</i></p>
         </blockquote>
         <img src="https://cdn.sstatic.net/Img/april-fools-2019/globe.gif?v=d8211e5aae84" class="tm-globe">
+        <img src="https://cdn.sstatic.net/Img/april-fools-2019/globe.gif?v=d8211e5aae84" class="tm-globe">
+        <img src="https://cdn.sstatic.net/Img/april-fools-2019/globe.gif?v=d8211e5aae84" class="tm-globe">
     </header>
     <img class="tm-unicorn-front" src="https://cdn.sstatic.net/Img/april-fools-2019/unicorn-front-half.png?v=3b572eca29f8" alt="UNI...">
 
     <header style="max-width: 600px; margin: 0 auto">
         <div class="language-icon-wrapper">
-            <img class="language-icon" src="https://pluralsight.imgix.net/paths/path-icons/css-c9b214f0d7.png" alt="" style="margin-right: 16px">
+            <img class="language-icon" src="https://pluralsight.imgix.net/paths/path-icons/css-c9b214f0d7.png" alt="" style="margin-right: 16px; width: 56px; height: auto">
 
         </div>
         <div class="language-icon-wrapper">
-            <img class="language-icon" src="https://searchlite.nl/wp-content/uploads/2016/08/JavaScript.png" alt="" style="margin-left: 16px; width: 48px; height: 48px">
+            <img class="language-icon" src="https://pluralsight.imgix.net/paths/path-icons/javascript-36f5949a45.png" alt="" style="margin-left: 16px; width: 48px; height: 48px">
 
         </div>
 
@@ -178,7 +189,13 @@
     </section>
     <img class="tm-unicorn-back" src="https://cdn.sstatic.net/Img/april-fools-2019/unicorn-back-half.png?v=1a044240263b" alt="...CORN">
 </main>
-<footer>
+<footer style="min-height: 100px; background-color: #000000">
+    <figure style="text-align: center; margin-top: 30px">
+        <img src="https://motherboard-images.vice.com/content-images/contentimage/26327/1444070256569233.gif" alt="This website is under construction">
+    </figure>
+    <figure style="text-align: center; margin-top: 30px">
+        <img src="https://motherboard-images.vice.com/content-images/contentimage/26327/1444070256569233.gif" alt="This website is under construction">
+    </figure>
 </footer>
 <script>
     function createAndAppendListElements(){
