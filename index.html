@@ -71,6 +71,9 @@
             max-width: 300px;
             text-align: center;
         }
+        [class*='fizz-buzz-wrapper'] * {
+            border: 1px solid #6A0f6c;
+        }
         .fizz-buzz-output {
             margin-bottom: 16px;
             padding: 8px;
@@ -160,44 +163,34 @@
             <p>When you can't impress them with your intelligence, <em>dazzle</em> them with your bullsh*t...</p>
             <p>– <i>Confucious</i></p>
         </blockquote>
-        <img src="https://cdn.sstatic.net/Img/april-fools-2019/globe.gif?v=d8211e5aae84" class="tm-globe">
-        <img src="https://cdn.sstatic.net/Img/april-fools-2019/globe.gif?v=d8211e5aae84" class="tm-globe">
-        <img src="https://cdn.sstatic.net/Img/april-fools-2019/globe.gif?v=d8211e5aae84" class="tm-globe">
+        <img src="img/globe.gif" class="tm-globe">
+        <img src="img/globe.gif" class="tm-globe">
+        <img src="img/globe.gif" class="tm-globe">
     </header>
     <img class="tm-unicorn-front" src="https://cdn.sstatic.net/Img/april-fools-2019/unicorn-front-half.png?v=3b572eca29f8" alt="UNI...">
 
     <header style="max-width: 600px; margin: 0 auto">
         <div class="language-icon-wrapper">
-            <img class="language-icon" src="https://pluralsight.imgix.net/paths/path-icons/css-c9b214f0d7.png" alt="" style="margin-right: 16px; width: 56px; height: auto">
+            <img class="language-icon" src="img/css3-icon.png" alt="" style="margin-right: 16px; width: 56px; height: auto">
 
         </div>
         <div class="language-icon-wrapper">
-            <img class="language-icon" src="https://pluralsight.imgix.net/paths/path-icons/javascript-36f5949a45.png" alt="" style="margin-left: 16px; width: 48px; height: 48px">
-
+            <img class="language-icon" src="img/javascript-icon.png" alt="" style="margin-left: 16px; width: 56px; height: auto">
         </div>
-
     </header>
-    <section id="fizz_buzz_output_css" class="fizz-buzz-wrapper-css">
-
-    </section>
-
-    <section id="fizz_buzz_output_js" class="fizz-buzz-wrapper-js">
-        <header>
-        </header>
-
-
-    </section>
+    <section id="fizz_buzz_output_css" class="fizz-buzz-wrapper-css"></section>
+    <section id="fizz_buzz_output_js" class="fizz-buzz-wrapper-js"></section>
     <img class="tm-unicorn-back" src="https://cdn.sstatic.net/Img/april-fools-2019/unicorn-back-half.png?v=1a044240263b" alt="...CORN">
 </main>
 <footer id="footer" style="min-height: 100px; background-color: #000000">
     <figure style="text-align: center; margin-top: 30px">
-        <img src="https://motherboard-images.vice.com/content-images/contentimage/26327/1444070256569233.gif" alt="This website is under construction">
+        <img src="img/under-construction.gif" alt="This website is under construction">
     </figure>
     <figure style="text-align: center; margin-top: 30px">
-        <img src="img/tic-tock.gif" alt="This website is under construction">
+        <img src="img/tic-tock.gif" alt="A clockface counting seconds">
     </figure>
     <figure style="text-align: center; margin-top: 30px">
-        <img src="https://motherboard-images.vice.com/content-images/contentimage/26327/1444070256569233.gif" alt="This website is under construction">
+        <img src="img/under-construction.gif" alt="This website is under construction">
     </figure>
 </footer>
 <script>
@@ -242,7 +235,6 @@
                 }
             }
             addFormattedElementNodeToDom(content, color);
-
         } //end for loop
     }
     function addFormattedElementNodeToDom(content, color){
@@ -252,9 +244,6 @@
         }
         attachNewElementNodeToTargetId(newElementNodeWithText,'fizz_buzz_output_js');
         attachNewElementNodeToTargetId(getNewElementNodeWithText("div", ""),'fizz_buzz_output_css');
-    }
-    window.onload = function () {
-        fizzBuzz(1, globalMaximum);
     }
 </script>
 <script>
@@ -273,8 +262,12 @@
     };
 
     var observer = new IntersectionObserver(callback, options);
-    var target = document.querySelector('#footer');
-    observer.observe(target);
+
+    window.onload = function () {
+        var target = document.querySelector('#footer');
+        observer.observe(target);
+        fizzBuzz(1, globalMaximum);
+    }
 
 </script>
 </body>
