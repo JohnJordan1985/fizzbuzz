@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <style>
-
         html {
             min-height: 100%;
             height: auto;
@@ -24,10 +24,17 @@
         footer {
             width: 100%;
             position: absolute;
-            bottom: 0
+            bottom: 0;
+            text-align: center;
+        }
+        .img-responsive {
+            display: block;
+            height: auto;
+            max-width: 100%;
+            margin: 0 auto;
         }
         .hide-xs {
-            display: none !important;
+            display: none;
         }
         .blue {
             background-color: #7887AB;
@@ -115,13 +122,11 @@
             top: 200px;
             left: -195px;
         }
-
         .tm-unicorn-back {
             position: absolute;
             top: 280px;
             right: -198px;
         }
-
         .tm-globe {
             width: 32px;
             height: 32px;
@@ -131,18 +136,16 @@
             display: inline-block;
             width: 45%;
             text-align: center;
-
         }
         .language-icon {
             display: inline-block;
-
             height: 64px;
             width: 64px;
         }
 
         @media only screen and (min-width: 768px) {
             .hide-xs {
-                display: inline-block;
+                display: block;
             }
             .parent-fizz-buzz-container {
                 max-width: 800px;
@@ -188,19 +191,19 @@
     </header>
     <section id="fizz_buzz_output_css" class="fizz-buzz-wrapper-css"></section>
     <section id="fizz_buzz_output_js" class="fizz-buzz-wrapper-js"></section>
-    <figure>
+    <figure class="">
         <img class="tm-unicorn-back hide-xs" src="https://cdn.sstatic.net/Img/april-fools-2019/unicorn-back-half.png?v=1a044240263b" alt="...CORN">
     </figure>
 </main>
 <footer id="footer" style="min-height: 100px; background-color: #000000">
     <figure style="text-align: center; margin-top: 30px">
-        <img src="img/under-construction.gif" alt="This website is under construction">
+        <img class="img-responsive" src="img/under-construction.gif" alt="This website is under construction">
     </figure>
     <figure style="text-align: center; margin-top: 30px">
-        <img src="img/tic-tock.gif" alt="A clockface counting seconds">
+        <img class="img-responsive" src="img/tic-tock.gif" alt="A clockface counting seconds">
     </figure>
     <figure style="text-align: center; margin-top: 30px">
-        <img src="img/under-construction.gif" alt="This website is under construction">
+        <img class="img-responsive" src="img/under-construction.gif" alt="This website is under construction">
     </figure>
 </footer>
 <script>
@@ -268,7 +271,7 @@
     var options = {
       root: null, // relative to document viewport
       rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
-      threshold: 1.0 // visible amount of item shown in relation to root
+      threshold: 0.9 // visible amount of item shown in relation to root
     };
 
     var observer = new IntersectionObserver(callback, options);
