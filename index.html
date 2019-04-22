@@ -26,6 +26,9 @@
             position: absolute;
             bottom: 0
         }
+        .hide-xs {
+            display: none !important;
+        }
         .blue {
             background-color: #7887AB;
             color: black;
@@ -138,6 +141,9 @@
         }
 
         @media only screen and (min-width: 768px) {
+            .hide-xs {
+                display: inline-block;
+            }
             .parent-fizz-buzz-container {
                 max-width: 800px;
                 margin: 0 auto;
@@ -167,7 +173,9 @@
         <img src="img/globe.gif" class="tm-globe">
         <img src="img/globe.gif" class="tm-globe">
     </header>
-    <img class="tm-unicorn-front" src="https://cdn.sstatic.net/Img/april-fools-2019/unicorn-front-half.png?v=3b572eca29f8" alt="UNI...">
+    <figure>
+        <img class="tm-unicorn-front hide-xs" src="https://cdn.sstatic.net/Img/april-fools-2019/unicorn-front-half.png?v=3b572eca29f8" alt="UNI...">
+    </figure>
 
     <header style="max-width: 600px; margin: 0 auto">
         <div class="language-icon-wrapper">
@@ -180,7 +188,9 @@
     </header>
     <section id="fizz_buzz_output_css" class="fizz-buzz-wrapper-css"></section>
     <section id="fizz_buzz_output_js" class="fizz-buzz-wrapper-js"></section>
-    <img class="tm-unicorn-back" src="https://cdn.sstatic.net/Img/april-fools-2019/unicorn-back-half.png?v=1a044240263b" alt="...CORN">
+    <figure>
+        <img class="tm-unicorn-back hide-xs" src="https://cdn.sstatic.net/Img/april-fools-2019/unicorn-back-half.png?v=1a044240263b" alt="...CORN">
+    </figure>
 </main>
 <footer id="footer" style="min-height: 100px; background-color: #000000">
     <figure style="text-align: center; margin-top: 30px">
