@@ -153,7 +153,7 @@
         <img class="" src="https://cdn.sstatic.net/Img/april-fools-2019/headline.gif?v=f81430a4e488" alt="">
     </section>
 </div>
-<main class="parent-fizz-buzz-container">
+<main id="parent_fizz_buzz_container" class="parent-fizz-buzz-container">
     <header>
         <h1><em>FizzBuzz</em>, B*tches!</h1>
         <blockquote cite="Confucious">
@@ -189,17 +189,27 @@
     </section>
     <img class="tm-unicorn-back" src="https://cdn.sstatic.net/Img/april-fools-2019/unicorn-back-half.png?v=1a044240263b" alt="...CORN">
 </main>
-<footer style="min-height: 100px; background-color: #000000">
+<footer id="footer" style="min-height: 100px; background-color: #000000">
     <figure style="text-align: center; margin-top: 30px">
         <img src="https://motherboard-images.vice.com/content-images/contentimage/26327/1444070256569233.gif" alt="This website is under construction">
+    </figure>
+    <figure style="text-align: center; margin-top: 30px">
+        <img src="img/tic-tock.gif" alt="This website is under construction">
     </figure>
     <figure style="text-align: center; margin-top: 30px">
         <img src="https://motherboard-images.vice.com/content-images/contentimage/26327/1444070256569233.gif" alt="This website is under construction">
     </figure>
 </footer>
 <script>
-    function createAndAppendListElements(){
+    var globalMaximum=100;
+
+    function updateGlobalMaxium(newValue) {
+        globalMaximum += newValue;
     }
+    function getGlobalMaxium(newValue) {
+        return globalMaximum;
+    }
+
     function getNewElementNodeWithText(tagName, content) {
         var newElementNode = document.createElement(tagName);
         var content = document.createTextNode(content);
@@ -244,8 +254,28 @@
         attachNewElementNodeToTargetId(getNewElementNodeWithText("div", ""),'fizz_buzz_output_css');
     }
     window.onload = function () {
-        fizzBuzz(1, 100);
+        fizzBuzz(1, globalMaximum);
     }
+</script>
+<script>
+    var callback = function() {
+        setTimeout(function(){
+            var oldGlobalMaxium = globalMaximum;
+            updateGlobalMaxium(100);
+            fizzBuzz(oldGlobalMaxium, getGlobalMaxium());
+        }, 2000);
+    };
+
+    var options = {
+      root: null, // relative to document viewport
+      rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
+      threshold: 1.0 // visible amount of item shown in relation to root
+    };
+
+    var observer = new IntersectionObserver(callback, options);
+    var target = document.querySelector('#footer');
+    observer.observe(target);
+
 </script>
 </body>
 </html>
