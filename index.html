@@ -249,7 +249,7 @@
     </figure>
 </footer>
 <script>
-    var globalMaximum=100;
+    var globalMaximum=30;
 
     function updateGlobalMaxium(newValue) {
         globalMaximum += newValue;
@@ -329,7 +329,7 @@
     var callback = function() {
         setTimeout(function(){
             var oldGlobalMaxium = globalMaximum;
-            updateGlobalMaxium(100);
+            updateGlobalMaxium(30);
             fizzBuzz(oldGlobalMaxium, getGlobalMaxium());
         }, 2000);
     };
