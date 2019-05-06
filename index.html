@@ -33,6 +33,9 @@
             max-width: 100%;
             margin: 0 auto;
         }
+        .float-right {
+            float: right;
+        }
         .show-xl {
             display: none;
         }
@@ -89,6 +92,8 @@
             margin-bottom: 16px;
             padding: 8px;
         }
+
+
         .fizz-buzz-wrapper-css > div::before {
             counter-increment: number;                 /* Increment the value of section counter by 1 */
             content: counter(number);                  /* Display the value of section counter */
@@ -97,6 +102,7 @@
         .fizz-buzz-wrapper-css > div:nth-child(3n):not(:nth-child(5n)) {
             background-color: #FFFFAA;
         }
+
         .fizz-buzz-wrapper-css > div:nth-child(3n):not(:nth-child(5n))::before {
             color: black;
             content: "Fizz";
@@ -104,6 +110,7 @@
         .fizz-buzz-wrapper-css > div:nth-child(5n):not(:nth-child(3n)) {
             background-color: #7887AB;
         }
+
         .fizz-buzz-wrapper-css > div:nth-child(5n):not(:nth-child(3n))::before {
             color: black;
             content: "Buzz";
@@ -115,6 +122,7 @@
             background-color: #AA3939;
             animation: 200ms infinite fizz-buzz-flashing;
         }
+
         .fizz-buzz-wrapper-css > div:nth-child(3n):nth-child(5n)::before {
             content: "FizzBuzz";
         }
@@ -137,7 +145,6 @@
         .language-icon-wrapper {
             display: inline-block;
             width: 50%;
-            float: left;
             text-align: center;
         }
         .language-icon {
@@ -147,12 +154,14 @@
         }
         .special-animated-icons {
             float: left;
-            display: inline;
-            height: 32px;
+            display: block;
+            height: auto;
+            max-width: 32px;
             position: relative;
             top: -8px;
             margin-right: 4px;
             border: none;
+            display: none; /* Hidden by default */
         }
         .special-animated-icons-right {
             float: right;
@@ -174,6 +183,19 @@
                 max-width: 300px;
                 margin: 0 auto;
             }
+        }
+
+        @media only screen and (min-width: 500px) {
+            .fizz-buzz-wrapper-css > div:nth-child(3n):not(:nth-child(5n)) .icon-fizz, .fizz-buzz-wrapper-js > div:nth-child(3n):not(:nth-child(5n)) .icon-fizz {
+                display: block;
+            }
+            .fizz-buzz-wrapper-css > div:nth-child(5n):not(:nth-child(3n)) .icon-alarm-clock, .fizz-buzz-wrapper-js > div:nth-child(5n):not(:nth-child(3n)) .icon-alarm-clock {
+                display: block;
+            }
+            .fizz-buzz-wrapper-css > div:nth-child(3n):nth-child(5n) .special-animated-icons, .FizzBuzz .special-animated-icons {
+               display: block;
+            }
+
         }
 
     </style>
@@ -205,7 +227,7 @@
             <img class="language-icon" src="img/css3-icon.png" alt="" style="width: 56px; height: auto">
 
         </div>
-        <div class="language-icon-wrapper">
+        <div class="language-icon-wrapper float-right">
             <img class="language-icon" src="img/javascript-icon.png" alt="" style="width: 56px; height: auto">
         </div>
     </header>
@@ -249,19 +271,19 @@
         var newNodeCopy = newNode;
         var newImg = document.createElement("img");
         newImg.src = "img/ani-alarmclock.gif";
-        newImg.classList.add("special-animated-icons");
+        newImg.classList.add("special-animated-icons", "icon-alarm-clock");
         newImgTwo = document.createElement("img");
         newImgTwo.src = "img/bluefizz.gif";
-        newImgTwo.classList.add("special-animated-icons");
+        newImgTwo.classList.add("special-animated-icons", "icon-fizz");
         newNode.appendChild(newImg);
         newNode.appendChild(newImgTwo);
 
         newImgRight = document.createElement("img");
         newImgRight.src = "img/bluefizz.gif";
-        newImgRight.classList.add("special-animated-icons", "special-animated-icons-right");
+        newImgRight.classList.add("special-animated-icons", "icon-fizz", "special-animated-icons-right");
         newImgRightTwo = document.createElement("img");
         newImgRightTwo.src = "img/ani-alarmclock.gif";
-        newImgRightTwo.classList.add("special-animated-icons", "special-animated-icons-right");
+        newImgRightTwo.classList.add("special-animated-icons", "icon-alarm-clock", "special-animated-icons-right");
         newNode.appendChild(newImgRightTwo);
         newNode.appendChild(newImgRight);
         return newNodeCopy;
@@ -326,12 +348,6 @@
         fizzBuzz(1, globalMaximum);
     }
 
-</script>
-<script>
-    var newImg = document.createElement("img");
-    newImg.src = "img/ani-alarmclock.gif";
-    var jsOutputChild = document.getElementById("fizz_buzz_output_js");
-    document.getElementById("parent_fizz_buzz_container").insertBefore(newImg, jsOutputChild);
 </script>
 </body>
 </html>
