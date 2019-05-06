@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>FizzBuzzer</title>
     <style>
         html {
             min-height: 100%;
@@ -84,6 +84,7 @@
         [class*='fizz-buzz-wrapper'] * {
             border: 1px solid #6A0f6c;
         }
+
         .fizz-buzz-output {
             margin-bottom: 16px;
             padding: 8px;
@@ -110,8 +111,9 @@
         .fizz-buzz-wrapper-css > div:nth-child(5n):nth-child(3n) {
             color: #EFEFEF;
         }
-        .fizz-buzz-wrapper-css > div:nth-child(3n):nth-child(5n) {
+        .fizz-buzz-wrapper-css > div:nth-child(3n):nth-child(5n), .FizzBuzz {
             background-color: #AA3939;
+            animation: 200ms infinite fizz-buzz-flashing;
         }
         .fizz-buzz-wrapper-css > div:nth-child(3n):nth-child(5n)::before {
             content: "FizzBuzz";
@@ -143,6 +145,18 @@
             height: 64px;
             width: 64px;
         }
+        .special-animated-icons {
+            float: left;
+            display: inline;
+            height: 32px;
+            position: relative;
+            top: -8px;
+            margin-right: 4px;
+            border: none;
+        }
+        .special-animated-icons-right {
+            float: right;
+        }
 
         @media only screen and (min-width: 1200px) {
             .show-xl {
@@ -163,6 +177,7 @@
         }
 
     </style>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 <div class="scroll-banner-wrapper">
@@ -224,8 +239,32 @@
     function getNewElementNodeWithText(tagName, content) {
         var newElementNode = document.createElement(tagName);
         var content = document.createTextNode(content);
-        newElementNode.appendChild(content)
-        return newElementNode;
+        newElementNode.appendChild(content);
+        var newElementNodeWithIcons = addSpecialAnimatedIcons(newElementNode);
+
+        return newElementNodeWithIcons;
+    }
+
+    function addSpecialAnimatedIcons(newNode) {
+        var newNodeCopy = newNode;
+        var newImg = document.createElement("img");
+        newImg.src = "img/ani-alarmclock.gif";
+        newImg.classList.add("special-animated-icons");
+        newImgTwo = document.createElement("img");
+        newImgTwo.src = "img/bluefizz.gif";
+        newImgTwo.classList.add("special-animated-icons");
+        newNode.appendChild(newImg);
+        newNode.appendChild(newImgTwo);
+
+        newImgRight = document.createElement("img");
+        newImgRight.src = "img/bluefizz.gif";
+        newImgRight.classList.add("special-animated-icons", "special-animated-icons-right");
+        newImgRightTwo = document.createElement("img");
+        newImgRightTwo.src = "img/ani-alarmclock.gif";
+        newImgRightTwo.classList.add("special-animated-icons", "special-animated-icons-right");
+        newNode.appendChild(newImgRightTwo);
+        newNode.appendChild(newImgRight);
+        return newNodeCopy;
     }
 
     function attachNewElementNodeToTargetId(newElementNodeWithText, targetId){
@@ -287,6 +326,12 @@
         fizzBuzz(1, globalMaximum);
     }
 
+</script>
+<script>
+    var newImg = document.createElement("img");
+    newImg.src = "img/ani-alarmclock.gif";
+    var jsOutputChild = document.getElementById("fizz_buzz_output_js");
+    document.getElementById("parent_fizz_buzz_container").insertBefore(newImg, jsOutputChild);
 </script>
 </body>
 </html>

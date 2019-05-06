@@ -1,0 +1,12 @@
+@keyframes fizz-buzz-flashing {
+	from {
+		background-color: #AA3939;
+		color: white;
+
+	}
+	to {
+		background-color: #55AA55; /* Complementary Green */
+		color: black;
+
+	}
+}
